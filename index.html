@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Inks Ghana Ltd - High-Quality Ink Manufacturer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #3a0ca3;
+            --secondary-color: #4361ee;
+            --accent-color: #7209b7;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --background-color: #f8f9fa;
+            --section-bg: #ecebeb;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--light-text);
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(114, 9, 183, 0.4);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--background-color);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            background: linear-gradient(to right, red, yellow, green, blue, rgb(98, 218, 29));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 3px 0;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative; /* Needed for absolute positioning of video and overlay */
+            overflow: hidden; /* Hide video overflow */
+            color: var(--text-light);
+            padding: 10rem 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* Ensure it takes a good portion of the viewport */
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire container */
+            z-index: 1; /* Place behind the overlay */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Kept a darker overlay for text readability over video */
+            background: linear-gradient(140deg,  rgba(141, 141, 141, 0.959), rgba(21, 25, 26, 0.699));
+            z-index: 2; /* Place between video and content */
+        }
+
+        .hero-content {
+            position: relative; /* Ensure content is on top of overlay */
+            z-index: 3;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 1; /* Hidden by default for animation */
+            animation: fadeInScale 1s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--section-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ink-drops {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .drop {
+            position: absolute;
+            border-radius: 50% 0 50% 50%;
+            transform: rotate(45deg);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .drop-1 {
+            width: 120px;
+            height: 120px;
+            background: var(--primary-color);
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .drop-2 {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary-color);
+            top: 50%;
+            left: 50%;
+            animation-delay: 0.5s;
+        }
+
+        .drop-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-color);
+            top: 30%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        /* Services Section (New) */
+        .services {
+            padding: 5rem 0;
+            background-color: var(--background-color); /* Matches products section background */
+        }
+
+        .services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .services .service-card {
+            background-color: var(--section-bg); /* Matches product card background */
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .services .service-card:hover {
+            box-shadow: 10px 10px 20px black;
+            transform: scale(1.05); /* Slightly less aggressive scale than product cards */
+        }
+
+        .services .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color); /* Matches product icon color */
+        }
+
+        .services .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color); /* Matches product card heading color */
+        }
+
+        .services .service-card p {
+            color: #666; /* Matches product card paragraph color */
+        }
+
+
+        /* Products Section */
+        .products {
+            padding: 5rem 0;
+            background-color: var(--background-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--section-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            box-shadow: 10px 10px 20px black;
+            transition: linear 0.2s; /* Reduced transition time for a snappier feel */
+            transform: scale(1.05); /* Adjusted scale for consistency */
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .product-card p {
+            color: #666;
+        }
+
+        /* Color Matching Section */
+        .color-matching {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(58, 12, 163, 0.05), rgba(114, 9, 183, 0.1));
+        }
+
+        .color-matching-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .color-matching-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .color-matching-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .color-palette {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .swatch-1 {
+            background-color: #ff0000;
+        }
+
+        .swatch-2 {
+            background-color: #00ff00;
+        }
+
+        .swatch-3 {
+            background-color: #0000ff;
+        }
+
+        .swatch-4 {
+            background-color: #ffff00;
+        }
+
+        .swatch-5 {
+            background-color: #ff00ff;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--section-bg);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(58, 12, 163, 0.1);
+            border-radius: 50%;
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .info-item a {
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(58, 12, 163, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--light-text);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(114, 9, 183, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--light-text);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .gizmo{
+            color: #8856ff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .copyright p {
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .made-in {
+            display: flex;
+            align-items: center;
+        }
+
+        .heart {
+            color: #ff4d4d;
+            margin: 0 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: rotate(45deg) translateY(0);
+            }
+            50% {
+                transform: rotate(45deg) translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .color-matching-content,
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .product-grid,
+            .services .service-grid { /* Apply to services grid as well */
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--section-bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                gap: 2rem;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .product-grid,
+            .services .service-grid { /* Apply to services grid as well */
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                justify-content: center;
+            }
+
+            .color-swatch {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>RainbowInksGhana </h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li> <!-- New Nav Link -->
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#color-matching">Color Matching</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+      <section id="home" class="hero">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="yoyo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Welcome to Rainbow Inks Ghana Ltd</h1>
+                    <p>High-Quality Solvent & Water-Based Inks Manufacturer in Ghana</p>
+                    <a href="#contact" class="cta-button">Request a Sample</a>
+                </div>
+            </div>
+        </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Rainbow Inks Ghana Ltd is the first and finest manufacturer of Solvent and Water-Based Inks in Ghana. With over 2 years of experience, we serve Ghana and several West African countries including Mali, Burkina Faso, Ivory Coast, and Guinea.</p>
+                </div>
+                <div class="about-image">
+                    <div class="ink-drops">
+                        <span class="drop drop-1"></span>
+                        <span class="drop drop-2"></span>
+                        <span class="drop drop-3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (New) -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Custom Ink Formulation</h3>
+                    <p>Tailored ink solutions developed to meet your specific printing requirements and substrates.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Precise Color Matching</h3>
+                    <p>Accurate color reproduction services to ensure brand consistency across all your prints.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h3>Fast & Reliable Delivery</h3>
+                    <p>Efficient logistics and timely delivery of inks across Ghana and West African regions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Technical Support</h3>
+                    <p>Expert technical assistance and troubleshooting for all your ink-related queries.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Eco-Friendly Solutions</h3>
+                    <p>Commitment to sustainable practices with a range of environmentally conscious ink options.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industrial Ink Supply</h3>
+                    <p>Bulk supply of high-performance inks for large-scale industrial printing operations.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-fill-drip"></i>
+                    </div>
+                    <a href="index1.html"><h3>Polymide Base Ink</h3></a>
+                    <p>High-quality polymide-based ink for specialized applications.</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <a href="index1.html"><h3>Vinyl Base Ink / Lam Ink</h3></a>
+                    <p>Perfect for vinyl surfaces with excellent adhesion properties.</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <a href="index1.html"><h3>RS Pebo Ink (BOPP)</h3></a>
+                    <p>Specialized ink formulated for BOPP film printing.</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <a href="index1.html"><h3>Sack Ink</h3></a>
+                    <p>Durable ink designed specifically for sack and packaging materials.</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <a href="index1.html"><h3>Water-Based Ink</h3></a>
+                    <p>Eco-friendly water-based formulations for various applications.</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-brush"></i>
+                    </div>
+                    <a href="index1.html"><h3>PVC Ink</h3></a>
+                    <p>Specialized ink for PVC materials with excellent durability.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Matching Section -->
+    <section id="color-matching" class="color-matching">
+        <div class="container">
+            <h2 class="section-title">Custom Color Matching</h2>
+            <div class="color-matching-content">
+                <div class="color-matching-text">
+                    <p>Give us a sample and we'll match the color you need with precision.</p>
+                    <a href="#contact" class="cta-button">Request Color Matching</a>
+                </div>
+                <div class="color-palette">
+                    <span class="color-swatch swatch-1"></span>
+                    <span class="color-swatch swatch-2"></span>
+                    <span class="color-swatch swatch-3"></span>
+                    <span class="color-swatch swatch-4"></span>
+                    <span class="color-swatch swatch-5"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <!-- <i class="fas fa-envelope"></i> -->
+                          <i class="fas fa-map-marker-alt"></i>
+                        <p>Accra, Ghana West Africa</p>
+                    </div>
+
+                    <div class="contact-info">
+                      <div class="info-item">
+                         <i class="fas fa-phone"></i>
+                         <a href="tel:+917760676013">+91 760722342</a>
+                      </div>
+                    </div>
+
+                    <div class="info-item">
+                        <!-- <i class="fab fa-map-marker-alt"></i> -->
+                         <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:hello@gizmokeeda.com">hello@gizmokeeda.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <!-- <i class="fas fa-user"></i> -->
+                         <i class="fas fa-clock"></i>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM IST</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2025 Rainbow Inks Ghana Ltd. All Rights Reserved | Managed By <a href="https://gizmokeeda.com/"><span class="gizmo">Adarsh</span></a></p>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="made-in">
+                    <p>Made with <span class="heart">❤️</span> in Ghana</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking on a nav link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Active navigation link based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks2 = document.querySelectorAll('.nav-links a');
+
+            function setActiveLink() {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks2.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', setActiveLink);
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    // Simple validation
+                    if (!name || !email || !message) {
+                        // Instead of alert, create a custom message box
+                        const messageBox = document.createElement('div');
+                        messageBox.className = 'custom-message-box error';
+                        messageBox.innerHTML = `<p>Please fill in all fields.</p>`;
+                        document.body.appendChild(messageBox);
+                        setTimeout(() => messageBox.remove(), 3000); // Remove after 3 seconds
+                        return;
+                    }
+
+                    // Here you would normally send the form data to a server
+                    // For demo purposes, we'll just show a success message
+
+                    // Create success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you for your message, ${name}! We'll get back to you soon.</p>
+                    `;
+
+                    // Style success message
+                    Object.assign(successMessage.style, {
+                        backgroundColor: '#4CAF50',
+                        color: 'white',
+                        padding: '20px',
+                        borderRadius: '5px',
+                        marginTop: '20px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        position: 'fixed', /* Changed to fixed for better visibility */
+                        top: '20px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        zIndex: '1001',
+                        boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+                    });
+
+                    // Clear form
+                    contactForm.reset();
+
+                    // Replace form with success message
+                    contactForm.parentNode.appendChild(successMessage);
+
+                    // Reset form after 5 seconds
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 5000);
+                });
+            }
+
+            // Animation for product cards and service cards
+            const animateCards = (selector) => {
+                const cards = document.querySelectorAll(selector);
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                cards.forEach(card => {
+                    card.style.opacity = 0;
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            };
+
+            animateCards('.product-card');
+            animateCards('.service-card'); // Apply animation to new service cards
+
+            // Color swatch animation
+            const swatches = document.querySelectorAll('.color-swatch');
+            let currentSwatch = 0;
+
+            function animateSwatches() {
+                swatches.forEach((swatch, index) => {
+                    if (index === currentSwatch) {
+                        swatch.style.transform = 'scale(1.2)';
+                    } else {
+                        swatch.style.transform = 'scale(1)';
+                    }
+                });
+
+                currentSwatch = (currentSwatch + 1) % swatches.length;
+                setTimeout(animateSwatches, 1500);
+            }
+
+            if (swatches.length > 0) {
+                setTimeout(animateSwatches, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
